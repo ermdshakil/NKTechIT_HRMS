@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center">Search Ticket by ID</h1>
+        <form id="searchForm" class="form-inline justify-content-center" action="searchTicket" method="post">
+            <input type="number" class="form-control mb-2 mr-sm-2" id="ticketId" placeholder="Enter Ticket ID" name="ticketId" required>
+            <button type="submit" class="btn btn-primary mb-1">Search</button>
+        </form>
+
+        <div class="container-fluid mt-1">
+            <h5 class="text-danger" th:if="${message}" th:text="${message}"></h5>
+
+            <table class="container-fluid table table-hover my-5" th:if="${ticket}">
+                <thead class="table-primary my-3">
+                    <tr>
+                        <th scope="col">Ticket Id</th>
+                        <th scope="col">Employee Id</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">Employee Email</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Issue Type</th>
+                        <th scope="col">description</th>
+                        <th scope="col">Ticket status</th>
+                        <th scope="col">Ticket Created Date</th>
+                        <th scope="col">Ticket Updated Date</th>
+                        <th scope="col">Ticket Updated By</th>
+                    </tr>
+                </thead>
+                <tbody class="table-dark table-group-divider">
+                    <tr>
+                        <td th:text="${ticket.ticketId}"></td>
+                        <td th:text="${ticket.empId}"></td>
+                        <td th:text="${ticket.username}"></td>
+                        <td th:text="${ticket.name}"></td>
+                        <td th:text="${ticket.email}"></td>
+                        <td th:text="${ticket.department}"></td>
+                        <td th:text="${ticket.issueType}"></td>
+                        <td th:text="${ticket.description}"></td>
+                        <td th:text="${ticket.status}"></td>
+                        <td th:text="${ticket.createdAt}"></td>
+                        <td th:text="${ticket.updateAt}"></td>
+                        <td th:text="${ticket.updateBy}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

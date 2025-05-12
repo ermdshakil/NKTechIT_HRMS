@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Update</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center">Search Ticket by ID</h1>
+        <form id="search" class="form-inline justify-content-center" action="ticketById" method="post">
+    <input type="number" class="form-control mb-2 mr-sm-2" name="id" placeholder="Enter Employee ID" required>
+    <button type="submit" class="btn btn-primary mb-1">Search</button>
+</form>
+
+<h5 class="text-danger" th:if="${message}" th:text="${message}"></h5>
+<form th:if="${ticket}" th:action="@{updateTicketById}" method="post" th:object="${ticket}">
+    <div class="mb-3">
+        <label>Ticket Id:</label>
+        <input type="number" class="form-control" th:field="*{ticketId}" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label>Employee ID:</label>
+        <input type="number" class="form-control" th:field="*{empId}" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label>Username:</label>
+        <input type="text" class="form-control" th:field="*{username}" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label>Name:</label>
+        <input type="text" class="form-control" th:field="*{name}" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label>Email Id:</label>
+        <input type="text" class="form-control" th:field="*{email}" readonly>
+    </div>
+    
+    <div class="mb-3">
+        <label>Department:</label>
+        <input type="text" class="form-control" th:field="*{department}" readonly>
+    </div>
+    
+    <div class="mb-3">
+        <label>Issue Type:</label>
+        <input type="text" class="form-control" th:field="*{issueType}" readonly>
+    </div>
+    
+    <div class="mb-3">
+        <label>Type Code:</label>
+        <input type="text" class="form-control" th:field="*{typeCode}" readonly>
+    </div>
+    
+    <div class="mb-3">
+        <label>Description:</label>
+        <input type="text" class="form-control" th:field="*{description}" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label>Status</label>
+        <select class="form-control" th:field="*{status}">
+           <option value="">Select Status</option>
+			<option value="Pending">Pending</option>
+			<option value="Completed">Completed</option>
+        </select>
+    </div>
+    
+    <div class="mb-3">
+        <label>Created at:</label>
+        <input type="text" class="form-control" th:field="*{createdAt}" readonly>
+    </div>
+    
+    <button type="submit" class="btn btn-success">Update</button>
+</form>           
+        </div>
+</body>
+</html>

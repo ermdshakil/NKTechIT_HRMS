@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Email</title>
+</head>
+<body>    
+   <h2 th:text="'Hello ' + ${empName} + ','"></h2>
+    <p>
+        <span>Your application for the job </span>
+        <strong th:text="${jobTitle}"></strong>
+        <span th:text="' has been ' + ${status} + '.'"></span>
+    </p>
+
+    <p th:if="${status} == 'SHORTLIST'">
+        Congratulations! You have been shortlisted for the next round. Our team will contact you with further details shortly.
+    </p>
+
+    <p th:if="${status} == 'REJECT'">
+        We appreciate your interest, but we regret to inform you that your application was not selected for further consideration.
+    </p>
+
+    <p>Thank you,<br>Admin Team</p>
+</body>
+</html>

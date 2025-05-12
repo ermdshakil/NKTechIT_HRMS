@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Search</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+body {
+	padding: 20px;
+}
+</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<form th:if="${employee}" th:action="@{updateEmpProfile}" method="post"
+			th:object="${employee}">
+			<div class="mb-3">
+				<label>First Name:</label> <input type="text" class="form-control"
+					th:field="*{firstName}" required>
+			</div>
+
+			<div class="mb-3">
+				<label>Last Name:</label> <input type="text" class="form-control"
+					th:field="*{lastName}" required>
+			</div>
+
+			<div class="mb-3">
+				<label>Date of Birth:</label> <input type="date"
+					class="form-control" th:field="*{dob}" required>
+			</div>
+
+			<div class="mb-3">
+				<label>Select Department:</label> <select class="form-control"
+					th:field="*{department}">
+					<option value="">Select Department</option>
+					<option value="Developer">Developer</option>
+					<option value="Tester">Tester</option>
+					<option value="HR">HR</option>
+					<option value="Manager">Manager</option>
+					<option value="Other">Other</option>
+				</select>
+			</div>
+
+			<div class="mb-3">
+				<label>Company Location:</label> <select class="form-control"
+					th:field="*{location}">
+					<option value="">Select Location</option>
+					<option value="Hyderabad">Hyderabad</option>
+					<option value="Bangalore">Bangalore</option>
+					<option value="Pune">Pune</option>
+					<option value="Gurugram">Gurugram</option>
+					<option value="Chennai">Chennai</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-success">Update</button>
+		</form>
+	</div>
+</body>
+</html>

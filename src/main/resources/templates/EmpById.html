@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center">Search Employee by ID</h1>
+        <form id="searchForm" class="form-inline justify-content-center" action="SearchById" method="post">
+            <input type="number" class="form-control mb-2 mr-sm-2" id="employeeId" placeholder="Enter Employee ID" name="id" required>
+            <button type="submit" class="btn btn-primary mb-1">Search</button>
+        </form>
+
+        <div class="container-fluid mt-1">
+            <h5 class="text-danger" th:if="${message}" th:text="${message}"></h5>
+
+            <table class="container-fluid table table-hover my-5" th:if="${employee}">
+                <thead class="table-primary my-3">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">DOB</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Joining Date</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Primary Number</th>
+                        <th scope="col">Contact Address</th>
+                    </tr>
+                </thead>
+                <tbody class="table-dark table-group-divider">
+                    <tr>
+                        <td th:text="${employee.id}"></td>
+                        <td th:text="${employee.firstName} + ' ' + ${employee.lastName}"></td>
+                        <td th:text="${employee.dob}"></td>
+                        <td th:text="${employee.gender}"></td>
+                        <td th:text="${employee.department}"></td>
+                        <td th:text="${employee.location}"></td>
+                        <td th:text="${employee.joiningDate}"></td>
+                        <td th:text="${employee.email}"></td>
+                        <td th:text="${employee.primaryNum}"></td>
+                        <td th:text="${employee.contactAdd}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

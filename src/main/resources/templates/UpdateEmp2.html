@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center">Search Employee by ID</h1>
+        <form id="searchForm" class="form-inline justify-content-center" action="updateById" method="post">
+    <input type="number" class="form-control mb-2 mr-sm-2" name="id" placeholder="Enter Employee ID" required>
+    <button type="submit" class="btn btn-primary mb-1">Search</button>
+</form>
+
+<h5 class="text-danger" th:if="${message}" th:text="${message}"></h5>
+<form th:if="${employee}" th:action="@{update}" method="post" th:object="${employee}">
+    <div class="mb-3">
+        <label>Employee Id:</label>
+        <input type="number" class="form-control" th:field="*{id}" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label>Username:</label>
+        <input type="text" class="form-control" th:field="*{username}" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label>First Name:</label>
+        <input type="text" class="form-control" th:field="*{firstName}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Last Name:</label>
+        <input type="text" class="form-control" th:field="*{lastName}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Date of Birth:</label>
+        <input type="date" class="form-control" th:field="*{dob}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Gender:</label>
+        <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" th:field="*{gender}" value="Male">
+            <label class="form-check-label">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" th:field="*{gender}" value="Female">
+            <label class="form-check-label">Female</label>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>Select Department:</label>
+        <select class="form-control" th:field="*{department}">
+            <option value="">Select Department</option>
+            <option value="Developer">Developer</option>
+            <option value="Tester">Tester</option>
+            <option value="HR">HR</option>
+            <option value="Manager">Manager</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Company Location:</label>
+        <select class="form-control" th:field="*{location}">
+            <option value="">Select Location</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Pune">Pune</option>
+            <option value="Gurugram">Gurugram</option>
+            <option value="Chennai">Chennai</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Joining Date:</label>
+        <input type="date" class="form-control" th:field="*{joiningDate}">
+    </div>
+
+    <div class="mb-3">
+        <label>Blood Group:</label>
+        <input type="text" class="form-control" th:field="*{blood}">
+    </div>
+
+    <h4 class="text-primary mt-3"><u>Contact Details</u></h4>
+
+    <div class="mb-3">
+        <label>Email:</label>
+        <input type="email" class="form-control" th:field="*{email}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Primary Number:</label>
+        <input type="tel" class="form-control" th:field="*{primaryNum}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Secondary Number:</label>
+        <input type="tel" class="form-control" th:field="*{secondryNum}">
+    </div>
+
+    <div class="mb-3">
+        <label>Current Address:</label>
+        <textarea class="form-control" rows="2" th:field="*{contactAdd}"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label>Permanent Address:</label>
+        <textarea class="form-control" rows="2" th:field="*{permanentAdd}"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Update</button>
+</form>
+
+            
+            
+            
+        </div>
+</body>
+</html>

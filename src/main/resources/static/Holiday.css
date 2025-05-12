@@ -1,0 +1,80 @@
+@charset "UTF-8";
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .hero {
+      background: url('Image1.jpeg') no-repeat center center/cover;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .hero h1, .hero p {
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .event-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .timeline {
+      border-left: 3px solid #0d6efd;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -18px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background-color: #fff;
+      border: 3px solid #0d6efd;
+      border-radius: 50%;
+    }
+
+    .highlight-img {
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: #0d6efd;
+      color: white;
+    }

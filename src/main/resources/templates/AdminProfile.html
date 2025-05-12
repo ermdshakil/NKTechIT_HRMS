@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style type="text/css">
+    a{
+    text-decoration: none;
+    color: black;
+    }
+    i{
+    font-size: 24px;
+    padding: 0px;
+    
+    }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-3 text-center">Admin Profile</h2>
+    <table class="table table-bordered table-hover my-4" th:if="${admin}">
+        <tr>
+            <th>ID</th>
+            <td th:text="${admin.id}"></td>
+        </tr>
+        <tr>
+            <th>First Name</th>
+            <td th:text="${admin.firstName}"></td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td th:text="${admin.lastName}"></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td th:text="${admin.gender}"></td>
+        </tr>
+        <tr>
+            <th>DOB</th>
+            <td th:text="${admin.dob}"></td>
+        </tr>
+        <tr>
+            <th>Joining Date</th>
+            <td th:text="${admin.joiningDate}"></td>
+        </tr>
+        <tr>
+            <th>Designation</th>
+            <td th:text="${admin.destignation}"></td>
+        </tr>
+        <tr>
+            <th>Email ID</th>
+            <td th:text="${admin.email}"></td>
+        </tr>
+        <tr>
+            <th>Number</th>
+            <td th:text="${admin.number}"></td>
+        </tr>
+        <tr>
+            <th>Username</th>
+            <td th:text="${admin.username}"></td>
+        </tr>
+    </table>
+    
+    <div class="d-grid gap-2 col-6 mx-auto">
+		  <button class="btn btn-outline-info" type="button"><a href="home"><i class="bi bi-house-add-fill" ></i>&nbsp;  Home</a></button>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center">Search Employee by ID</h1>
+        <h5 class="text-danger text-center" th:if="${message}" th:text="${message}"></h5>
+        <h5 class="text-success text-center" th:if="${messageDel}" th:text="${messageDel}"></h5>
+        <form id="searchForm" class="form-inline justify-content-center" action="deleteById" method="post">
+            <input type="text" class="form-control mb-2 mr-sm-2" id="employeeId" placeholder="Enter Employee ID" name="id" required>
+            <button type="submit" class="btn btn-primary mb-1">Delete Data</button>
+        </form>
+	</div>
+</body>
+</html>

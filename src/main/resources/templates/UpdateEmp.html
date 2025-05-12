@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center">Search Employee by ID</h1>
+        <form id="searchForm" class="form-inline justify-content-center" action="updateById" method="post">
+    <input type="number" class="form-control mb-2 mr-sm-2" name="id" placeholder="Enter Employee ID" required>
+    <button type="submit" class="btn btn-primary mb-1">Search</button>
+</form>     
+    </div>
+</body>
+</html>

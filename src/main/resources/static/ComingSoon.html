@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<style>
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	display: table;
+	background: none;
+	opacity: 0;
+	transition: opacity 0.8s ease;
+}
+
+body.loaded {
+	opacity: 1;
+}
+
+#heading {
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	/* border: 2px red solid; */
+}
+
+* {
+	font-family: sans-serif;
+}
+
+#text1 {
+	color: black;
+	letter-spacing: 8px;
+	/* animation: text 3s 1;  */
+}
+
+/* @keyframes text { 
+            0% { 
+                color: black; 
+            } 
+  
+            30% { 
+                letter-spacing: 25px; 
+            } 
+  
+            85% { 
+                letter-spacing: 8px; 
+            } 
+        }  */
+</style>
+</head>
+<body onload="document.body.classList.add('loaded')">
+	<div class="container-flued" id="heading">
+		<h1
+			class="display-1 animate__animated animate__bounce animate__slower animate__infinite animate__delay-1s"
+			id="text1">Coming Soon...</h1>
+	</div>
+</body>
+</html>

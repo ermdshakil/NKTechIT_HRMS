@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NKTechIT Dashboard</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.2.0/mdb.min.css" />
+<style>
+.carousel-item {
+	height: 700px;
+}
+
+.nav-item {
+	position: relative;
+	transition: background-color 0.3s, font-weight 0.3s;
+}
+
+.nav-item:hover {
+	background-color: rgb(142, 142, 44);
+	font-weight: bolder;
+	transition: 0.3s;
+}
+
+.nav-item::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0%;
+	height: 2px;
+	background-color: white;
+	transition: width 0.5s;
+}
+
+.nav-item:hover::after {
+	width: 100%;
+}
+
+.footer-container {
+	position: absolute;
+	bottom: 50%;
+	width: 100%;
+	transform: translateY(50%);
+}
+
+#clock {
+	font-size: larger;
+	font-family: sans-serif;
+	font-weight: bold;
+	color: black;
+	width: fit-content;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand animate__animated animate__flip animate__delay-1s animate__slower mx-5"
+				href="#">NKTechIT</a>
+		</div>
+		<div class="dropdown mx-4">
+                <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Admin Profile
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                    <li><a class="dropdown-item" href="viewProfile">View Profile</a></li>
+                    <li><a class="dropdown-item" href="updateProfile">Update Profile</a></li>
+                    <li><a class="dropdown-item" href="contactInfo">Contact Information</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="logout">Logout</a></li>
+                </ul>
+            </div>
+	</nav>
+	<div class="d-flex">
+	<div class="bg-primary text-white vh-80 p-3" style="width: 250px;">
+	<h4 class="text-center">Menu</h4>
+	<ul class="nav flex-column gap-2 text-center" id="menu">
+		<li class="nav-item"><a class="nav-link text-white" href="/admin/Dashboard">Dashboard</a></li>
+		<li class="nav-item"><a class="nav-link text-white" href="/admin/AllAdmin">All Admin Details</a></li>
+		<li class="nav-item"><a class="nav-link text-white" href="/admin/AdminReg">Admin Reg Form</a></li>
+		<li class="nav-item"><a class="nav-link text-white" href="/admin/EmpById">Emergency Contact</a></li>
+		<li class="nav-item"><a class="nav-link text-white" href="/admin/comingSoon">Salary</a></li>
+		<li class="nav-item"><a class="nav-link text-white" href="/admin/comingSoon">Attendance</a></li>
+		<li class="nav-item"><a class="nav-link text-white" href="/admin/allLeaves">Leave Update</a></li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle text-white" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Emp Tickets
+			</a>
+			<ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+				<li><a class="dropdown-item" href="/admin/allTickets">All Tickets</a></li>
+				<li><a class="dropdown-item" href="searchTicketById">Search Ticket By Id</a></li>
+				<li><a class="dropdown-item" href="/admin/updateTicket">Update Ticket</a></li>
+			</ul>
+		</li>
+<!-- 		<li class="nav-item"><a class="nav-link text-white" href="/admin/events">Events</a></li>		 -->
+		<li class="nav-item"><a class="nav-link text-white" href="/admin/policy">Policies</a></li>
+		<li class="nav-item"><a class="nav-link text-white" href="/admin/holiday">Holiday</a></li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle text-white" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Job Portal
+			</a>
+			<ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+				<li><a class="dropdown-item" href="/admin/jobPost">Post the Job</a></li>
+				<li><a class="dropdown-item" href="">Search Job By Id</a></li>
+				<li><a class="dropdown-item" href="/admin/postedJobs">Check Posted Job</a></li>
+				<li><a class="dropdown-item" href="/admin/jobSeekerList">Job Seeker's List</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<!-- Include Bootstrap Bundle JS at bottom (Important!) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+		<div class="container-fluid p-1">
+			<div id="carouselExample" class="carousel slide"
+				data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="/img1.jpg" class="d-block w-100" alt="Server Room">
+					</div>
+					<div class="carousel-item">
+						<img src="/img2.jpg" class="d-block w-100" alt="Tech Image">
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#carouselExample" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#carouselExample" data-bs-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid p-0" style="margin-top: -30px;">
+		<footer class="text-center text-white"
+			style="background-color: #f1f1f1;">
+			<div class="container-fluid pt-3">
+				<div
+					class="clock animate__animated animate__pulse animate__slow animate__infinite"
+					id="clock"></div>
+				<div class="d-flex justify-content-center">
+					<section class="mb-2" style="margin-top: -40px;">
+						<a class="btn btn-link btn-floating btn-lg text-primary m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-facebook-f" style="font-size: 24px"></i></a> <a
+							class="btn btn-link btn-floating btn-lg text-primary m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-twitter" style="font-size: 24px"></i></a> <a
+							class="btn btn-link btn-floating btn-lg text-warning m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-google" style="font-size: 24px"></i></a> <a
+							class="btn btn-link btn-floating btn-lg text-danger m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-instagram" style="font-size: 24px"></i></a> <a
+							class="btn btn-link btn-floating btn-lg text-primary m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-linkedin" style="font-size: 24px"></i></a> <a
+							class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!"
+							role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-github" style="font-size: 24px"></i></a>
+					</section>
+				</div>
+			</div>
+			<div class="text-center text-dark p-3"
+				style="background-color: rgba(0, 0, 0, 0.2);">
+				© 2020 Copyright:<a class="text-dark"
+					href="https://mdbootstrap.com/"> NKTechIT Service Pvt Ltd</a>
+			</div>
+		</footer>
+	</div>
+	<script>
+		function updateClock() {
+			const now = new Date();
+			const time = now.toLocaleTimeString();
+			document.getElementById('clock').textContent = time;
+		}
+		setInterval(updateClock, 1000);
+		updateClock();
+	</script>
+</body>
+</html>

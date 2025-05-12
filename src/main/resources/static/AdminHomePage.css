@@ -1,0 +1,271 @@
+@charset "ISO-8859-1";
+/*@charset "ISO-8859-1";
+*/
+     #logo {
+        height: 40px;
+        width: 150px;
+        margin-top: -5px;
+        margin-left: 20px;
+        /* border: 2px red solid; */
+    }
+    #profile {
+        margin-right: 7px;
+        width: 120px;
+    }
+    .carousel-inner img {
+        width: 100%;
+        height: 90%;
+        overflow: hidden;
+        /* margin-left: 15px; */
+        /* border: 2px red solid; */
+    }
+    
+    #demo {
+        /* border: 2px red solid; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       height: 850px;
+        left: 300px;
+        right: 200px;
+        top:-100px;
+        bottom: 150px;
+        width: 800px;
+        /* max-width: 2000px; */
+        overflow: hidden;
+        display: flex;
+        overflow: hidden;
+        z-index: -1;
+        margin-bottom: 65px;
+        padding: 0%;
+    }
+        
+    #dashboard {
+        /* border: 2px red solid; */
+        /* margin-left: 17%; */
+        display: flex;
+        /* margin-top: 5%; */
+        padding-inline-start: 20px;
+        padding: 5px;
+        background-color: #062f5d;
+        color: white;
+        max-width: 100%;
+         
+    }
+    #dashBordHeading {
+        margin-left: 20%;
+        /* line-height: 0px; */
+        /* padding:0px; */
+        /* height: 30px; */
+        font-size: 20px;
+        /* border: 1px solid red; */
+        /* width: 2000px; */
+        width: 40%;
+        /* text-align: center; */
+
+        /* display: flex; */
+        /* border: 2px red solid; */
+        /* padding-top: 10%; */
+        /* margin-top: 10px; */
+        /* padding-top: 0px; */
+        /* padding-top: 50px; */
+         /* left: 60%; */
+         z-index: 1;
+          font-size: medium;
+    font-family: 'Segoe UI',Tahoma,Geneva, Verdana,sans-serif;
+    }
+    
+    .dropdown-menu{
+        /* margin-left: 6%; */
+        background-color: black;
+        opacity: 0.8;
+        color: white;
+        
+    }
+    .dropdown-menu>a{
+        color: white;
+        line-height: 30px;
+        transition: 0.4s;
+    }
+    
+    
+    
+    /* sakshi code css */
+    
+    #navbar {
+        width: 200px;
+        height: 82vh;
+        margin-top: 4%;
+        /* border-bottom: white; */
+        /* border: 1px solid white; */
+        background-color: #062f5d;
+        position: fixed;
+        text-align: left;
+        font-size: 14px;
+        font-family: 'Segoe UI',Tahoma,Geneva, Verdana,sans-serif;
+        border-bottom: 1px white solid;
+        top: 20px;
+        left: 0;
+        /* position: fixed; */
+        /* display: block; */
+        display: flex;
+        /* border: 2px red solid; */
+    }
+    
+    /* Style for mobile */
+    .navbar-mobile {
+        display: none;
+    }
+    
+        .menu-icon::before {
+        content: "\2630";
+        /* Hamburger icon */
+    }
+    
+    /* Blocks in navigation bar */
+    .nav-block {
+        width: 100%;
+        border-bottom: 1px solid white;
+        margin: 0px;
+        color: white;
+        margin-top: 0px;
+        text-align:left;
+        line-height: -200px;
+        /* min-height: max-content; */
+        /* border: 2px red solid; */
+        height: 50px;
+        padding-top: 10px;
+        transition: 0.4s;
+    }
+
+    .nav-block:hover{
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+    a{
+        color: white;
+    }
+    a:hover{
+        text-decoration: none;
+        color: black;
+    }
+    
+     .menu-icon { display: none; }
+
+@media (max-width: 768px) {
+    #navbar {
+        display: none;
+      }
+  .menu-icon { 
+    display: block; 
+   }
+
+  #demo {
+        
+        display: flex;
+        /* justify-content: center;
+        align-items: center; */
+        max-width: 350px;
+        max-height: 300px;
+        left: 375px;
+        right: 50px;
+        overflow: hidden;
+        /* z-index: -1; */
+        position: absolute;
+        top: 70px;
+        padding: 5%;
+    }
+
+}
+    #content {
+        margin-left: 190px;
+        background-color: navy;
+        color: white;
+        height: 30px;
+        font-size: 15px;
+        padding-top: 15px;
+    }
+    .popup-nav {
+  display: none;
+  position: absolute;
+  /* background-color: #fff; */
+  background-color: navy;
+  border: 1px solid #ccc;
+  width: 200px;
+  height: 380px;
+  padding: 10px;
+  z-index: 1;
+  right: 0;
+}
+
+.container{
+    position: relative;
+}
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+#userImage {
+        height: 30px;
+        width: 40px;
+        margin-top: -20px;
+        border-radius: 50%;
+        transition: filter 0.3s ease-in-out;
+}
+
+#userImage:hover {
+    filter: brightness(80%);
+}
+
+#logout {
+    position: absolute;
+    top: 100%;
+    right: 2%;
+    transform: translate(-50%, -50%);
+    /* transition: all 5s; */
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+    
+    border-radius: 5px;
+    /* display: none; */
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.container1:hover #logout{
+    opacity: 1;
+    margin-top: 20px;
+}
+#userImage:hover + #logout {
+    display: inline-block;
+}
+#footdec o {
+	color: #84b6d5 ;
+    /* border: 2px red solid; */
+    z-index: -1;
+    background-color: white;
+	position: fixed;
+	margin-bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+footer{
+    /* border: 2px red solid; */
+    height: 40px;
+	width: 100%;
+	z-index: -1;
+	background-color: white;
+}
+#header{
+    height: 40px;
+   background-color: #e6e4e4;
+}

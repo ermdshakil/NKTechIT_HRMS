@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <style>
+    #myCarousel{
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    #image{
+      height: 100vh;
+      overflow: hidden;
+      z-index: -1;
+      max-width: 100%;
+    }
+
+    .carousel-control:hover{
+      background: transparent;
+      opacity: 0;
+    }
+
+    .carousel-control{
+      background: transparent;
+      opacity: 0;
+      background-color: unset;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Scrolling Image Part Started-->
+  <div id="myCarousel" class="carousel slide container" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" id="image">
+      <div class="item active">
+        <img src="img1.jpg" alt="Los Angeles">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="img2.jpg" alt="Chicago" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="img3.jpg" alt="New york" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="img4.jpg" alt="New york" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="img5.jpg" alt="New york" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <!-- Scrolling Image part Ended -->
+</body>
+
+</html>

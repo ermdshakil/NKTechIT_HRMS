@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event | NKTECHIT</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .hero {
+            background-image: url('bg.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            height: 300px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7); /* Black overlay */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative; /* Position relative for text overlay */
+            z-index: 2; /* Ensure text is on top */
+            color: white; /* White text */
+        }
+
+        .container {
+            padding-top: 320px; /* Prevent content from hiding behind hero */
+        }
+
+        .schedule, .speakers, .registration {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .additional-info {
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Join Us for Our Annual Tech Event!</h1>
+            <p>Connect, Learn, and Innovate</p>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="schedule">
+            <h2 class="text-center">Event Schedule</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>9:00 AM</strong> - Registration Opens</li>
+                <li class="list-group-item"><strong>10:00 AM</strong> - Keynote Speaker: The Future of Tech</li>
+                <li class="list-group-item"><strong>11:00 AM</strong> - Networking Session</li>
+                <li class="list-group-item"><strong>12:00 PM</strong> - Lunch Break</li>
+                <li class="list-group-item"><strong>1:00 PM</strong> - Workshops Begin</li>
+                <li class="list-group-item"><strong>3:00 PM</strong> - Panel Discussion: Innovations in IT</li>
+                <li class="list-group-item"><strong>4:00 PM</strong> - Closing Remarks</li>
+            </ul>
+        </div>
+
+        <div class="speakers">
+            <h2 class="text-center">Featured Speakers</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h4>Nitin Kumar</h4>
+                    <p>CEO of Tech Innovations</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h4>Bipin Raj</h4>
+                    <p>Lead Developer at CodeCraft</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h4>Vishal Saxena</h4>
+                    <p>Data Scientist at DataWorks</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="registration">
+            <h2 class="text-center">Register for the Event</h2>
+            <form id="registrationForm" action="http://bkumar:8080/HRMS/webapi/event/submitEvent" method="post">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input type="text" class="form-control" id="department" name="department" placeholder="Your Department name" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventType">Event Type</label>
+                    <select id="eventType" class="form-control" onchange="showEventDetails()" name="eventType">
+                        <option value="">Select the Event Type</option>
+                        <option value="Cricket">Cricket</option>
+                        <option value="Swimming">Swimming</option>
+                        <option value="Football">Football</option>
+                        <option value="Tracking">Tracking</option>
+                        <option value="Badminton">Badminton</option>
+                    </select>
+                </div>
+
+                <!-- Additional Info Section -->
+                <div class="additional-info" id="additional-info">
+                    <h4>Additional Information</h4>
+                    <div class="form-group">
+                        <label for="team">Team Name (if applicable)</label>
+                        <input type="text" class="form-control" id="team" placeholder="Enter your team name" name="teamName">
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Experience Level</label>
+                        <select id="experience" class="form-control" name="experience">
+                            <option value="">Select Experience Level</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="text-center py-4">
+        <div class="container">
+            <p>&copy; 2024 NKTechIT Service PVT LTD | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Contact Us</a></p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showEventDetails() {
+            const eventType = document.getElementById('eventType').value;
+            const additionalInfo = document.getElementById('additional-info');
+
+            // Show the additional info section based on the selected event type
+            if (eventType) {
+                additionalInfo.style.display = 'block';
+            } else {
+                additionalInfo.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
